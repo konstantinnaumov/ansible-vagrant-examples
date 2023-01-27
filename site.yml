@@ -1,0 +1,27 @@
+---
+- name: "VAW (Vagrant Ansible WordPress) v0.8.8"
+  hosts: localhost
+  remote_user: vagrant
+  become: yes
+  connection: local
+
+  roles:
+    - { role: before-command,      tags: [before-command] }
+    - { role: common,              tags: [common] }
+    - { role: develop-tools,       tags: [develop-tools] }
+    - { role: git,                 tags: [git] }
+    - { role: mkcert,              tags: [mkcert] }
+    - { role: mysql,               tags: [mysql],                when: "database == 'mysql'" }
+    - { role: mariadb,             tags: [mariadb],              when: "database == 'mariadb'" }
+    - { role: percona,             tags: [percona],              when: "database == 'percona'" }
+    - { role: apache,              tags: [apache],               when: "server == 'apache'" }
+    - { role: nginx,               tags: [nginx],                when: "server == 'nginx'" }
+    - { role: h2o,                 tags: [h2o],                  when: "server == 'h2o'" }
+    - { role: phpenv,              tags: [phpenv] }
+    - { role: wp-cli,              tags: [wp-cli] }
+    - { role: wordpress,           tags: [wordpress, sync-dir] }
+    - { role: rbenv,               tags: [rbenv],                when: "develop_tools or deploy_tools" }
+    - { role: nodenv,              tags: [nodenv],               when: "develop_tools" }
+    - { role: wordpress-develop,   tags: [wordpress-develop],    when: "develop_tools" }
+    - { role: wordpress-deploy,    tags: [wordpress-deploy],     when: "deploy_tools" }
+    - { role: after-command,       tags: [after-command] }

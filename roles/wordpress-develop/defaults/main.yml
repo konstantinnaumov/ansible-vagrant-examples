@@ -1,0 +1,5 @@
+home_dir: /home/vagrant
+share_path: /usr/local/share
+phpenv_dir: /home/vagrant/.phpenv
+rbenv_dir: /home/vagrant/.rbenv
+nodenv_dir: /home/vagrant/.nodenv

@@ -1,0 +1,57 @@
+---
+- name: build environment (CentOS/RHEL)
+  package:
+    name:
+      - libxml2-devel
+      - bison-devel
+      - openssl-devel
+      - libjpeg-devel
+      - libpng-devel
+      - libmcrypt-devel
+      - readline-devel
+      - libtidy-devel
+      - libxslt-devel
+      - re2c
+      - sqlite-devel
+      - oniguruma-devel
+    state: latest
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: libzip.yml
+  when:
+    - ansible_os_family == 'RedHat'
+
+- name: build environment (Debian)
+  package:
+    name:
+      - libxml2-dev
+      - libbison-dev
+      - libssl-dev
+      - libcurl4-openssl-dev
+      - libjpeg-dev
+      - libpng-dev
+      - libmcrypt-dev
+      - libreadline-dev
+      - libtidy-dev
+      - libxslt-dev
+      - re2c
+      - libmagic-dev
+      - libtool
+      - libtool-doc
+      - autoconf
+      - libzip-dev
+      - libsqlite3-dev
+      - libkrb5-dev
+      - libgssapi-krb5-2
+      - libonig-dev
+    state: latest
+  when: ansible_os_family == 'Debian'
+
+- name: build environment (Debian)
+  package:
+    name:
+      - libtool-bin
+    state: latest
+  when:
+    - ansible_os_family == 'Debian'
+    - ansible_distribution_major_version is version('16', '>=')

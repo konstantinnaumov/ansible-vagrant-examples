@@ -1,0 +1,6 @@
+---
+- name: php-fpm enabled
+  service:
+    name: php-fpm
+    enabled: yes
+  notify: php-fpm restarted

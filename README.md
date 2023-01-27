@@ -587,3 +587,6 @@ You can create a Vagrant Box with server and database configuration in advance. 
 First, create a Vagrant Box with Provision mode `box`.
 Next, provision the created Vagrant Box with Provision mode `wordpress`.
 Based on the Vagrant Box you created, WordPress development environment will start quickly anytime.
+
+Since we're using IUS, I highly recommend keeping an eye on the [announcements repository](https://github.com/iusrepo) to be notified when packages are removed.
+

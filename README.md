@@ -1,589 +1,589 @@
-#  VAW (Бродячий Ansible WordPress)
+ VAW (Vagrant Ansible WordPress)
 
-**VAG ( Vagrant Ansible WordPress)** — это **Ansible playbooks** для разработчиков веб-сайтов, дизайнеров, веб-мастеров и разработчиков тем/плагинов WordPress.
+The **VAW (Vagrant Ansible WordPress)** is **Ansible playbooks** for website developer, designer, webmaster and WordPress theme/plugin developer.
 
-Запускаем среду разработки в Vagrant, можно собрать сайт и проверить работу сайта. Конечно, вы также можете разрабатывать темы и плагины для WordPress.
+Launch the development environment in Vagrant, you can build the website and verify the operation of the website. Of course, you can also develop WordPress themes and plugins.
 
-**VAW** также является инструментом для совместной работы. Вы можете воспользоваться инструментом для совместной работы, который разделяет среду с партнерами по разработке, дизайнерами и клиентами.
+The **VAW** is also a collaboration tool. You can take advantage of collaboration tool that share the environment with development partners, designers and clients.
 
-Документация VAW (Vagrant Ansible WordPress): [ https://thingsym.github.io/vaw/](https://thingsym.github.io/vaw/ )
+VAW (Vagrant Ansible WordPress) documentation: [https://thingsym.github.io/vaw/](https://thingsym.github.io/vaw/)
 
-##  Особенности
+## Features
 
-###  1. Сборка ОС, сервера и базы данных
+### 1. Build OS, Server and Database environment
 
-**VAW** соберет ОС из **CentOS** , **Debian** или **Ubuntu** , сервер из **Apache** , **nginx** или **H2O** и соберет базы данных из **MariaDB** или **MySQL** или **Percona MySQL** .
+The **VAW** will build OS from **CentOS** or **Debian** or **Ubuntu**, server from **Apache** or **nginx** or **H2O**, and build database from **MariaDB** or **MySQL** or **Percona MySQL**.
 
-На всех веб-серверах возможна конфигурация FastCGI. Создайте среду выполнения PHP из **PHP-FPM** (FastCGI Process Manager).
+On all web servers, FastCGI configuration is possible. Build PHP execution environment from **PHP-FPM** (FastCGI Process Manager).
 
-По умолчанию сервер и база данных установлены в настройках по умолчанию. Также вы можете редактировать файлы конфигурации.
+By default, the server and the databese is installed in the default settings. Also you can edit configuration files.
 
-Вы можете проверить на сервере и базе данных различные комбинации.
+You can validate on the server and the database of various combinations.
 
-###  2. Создайте среду WordPress
+### 2. Build WordPress environment
 
-**VAW** создаст WordPress, который был обработан с различными настройками и данными.
+The **VAW** will build a WordPress which has been processed in a variety of settings and data.
 
-Вы можете проверить тестовые данные или реальные данные на WordPress. VAW будет осуществлять сборку WordPress, синхронизированную с данными и файлами в производственной среде.
+You can verify the test data or real data on WordPress. The VAW will realize building of WordPress synchronized with the data and files in the production environment.
 
-* Установить указанную версию WordPress Core
-* Установите ядро ​​WordPress на вашем языке
-* Установить в указанный каталог или установить в подкаталог
-* Мультисайтовая поддержка
-* Поддержка администрирования через SSL
-* Установить тему
-	* Автоматическая активация
-	* Пакетная установка нескольких тем
-	* Установите тему по локальному пути (разработка темы и поддержка незарегистрированных тем в официальном каталоге)
-* Установить плагин
-	* Автоматическая активация
-	* Пакетная установка нескольких плагинов
-	* Установите плагин по локальному пути (разработка плагина и поддержка незарегистрированного плагина в официальном каталоге)
-* Установка theme_mod (значение модификации темы) и опций
-* Настройка структуры постоянных ссылок
-* Импорт данных любым из 4-х способов
-	* Файл экспорта WordPress (WXR)
-	* Файл SQL (данные дампа базы данных)
-	* Резервный файл архива плагина "BackWPup" (Zip, Tar, Tar GZip, Tar BZip2)
-	* Тематический модульный тест
-* Автоматически размещать каталог wp-content
-* Автоматически размещать каталог загрузок
-* Замена на URL тестовой среды с URL рабочей среды
-* Регенерировать миниатюры
+* Install specified version WordPress Core
+* Install WordPress Core in Your Language
+* Install to specified directory, or subdirectory install
+* Multisite support
+* Administration Over SSL support
+* Install theme
+	* Automatic activate
+	* Batch install multiple themes
+	* Install the theme in the local path (developing theme and official directory unregistered theme support)
+* Install plugin
+	* Automatic activate
+	* Batch install multiple plugins
+	* Install the plugin in the local path (developing plugin and official directory unregistered plugin support)
+* Setting theme_mod (theme modification value) and Options
+* Setting permalink structure
+* Importing data from any one of 4 ways
+	* WordPress export (WXR) file
+	* SQL file (database dump data)
+	* Backup plugin "BackWPup" archive file (Zip, Tar, Tar GZip, Tar BZip2)
+	* Theme Unit Test
+* Automatically place wp-content directory
+* Automatically place uploads directory
+* Replacement to the URL of the test environment from the URL of the production environment
+* Regenerate thumbnails
 
-###  3. Инструменты разработки и развертывания
+### 3. Develop & Deploy Tools
 
-Предварительная установка управления версиями PHP «phpenv», диспетчера зависимостей для PHP «Composer», инструментов командной строки для WordPress «WP-CLI» и системы контроля версий «Git» в стандартной комплектации.
+Pre-installing PHP version managment 'phpenv', Dependency Manager for PHP 'Composer', command-line tools for WordPress 'WP-CLI' and version control system 'Git' in the standard.
 
-Вы можете установить инструменты разработки или инструменты развертывания по использованию. Список установленных инструментов см. в Спецификации.
+You can install the develop tools or the deploy tools by usage. See Specification for list of installed tools.
 
-##  Требования
+## Requirements
 
-* [ Oracle VM VirtualBox ] (https://www.virtualbox.org) >= 6.1
-* [ Бродяга ](https://www.vagrantup.com) >= 2.2
-* [ Ansible ](https://www.ansible.com) >= 2.9
+* [Oracle VM VirtualBox](https://www.virtualbox.org) >= 6.1
+* [Vagrant](https://www.vagrantup.com) >= 2.2
+* [Ansible](https://www.ansible.com) >= 2.9
 
-####  Необязательно
+#### Optional
 
-* [ mkcert ] (https://github.com/FiloSottile/mkcert)
+* [mkcert](https://github.com/FiloSottile/mkcert)
 
-###  Плагин Vagrant (необязательно)
+### Vagrant plugin (optional)
 
-* [ vagrant-hostsupdater ] (https://github.com/cogitatio/vagrant-hostsupdater)
-* [ бродяга-vbguest ] (https://github.com/dotless-de/vagrant-vbguest)
-* [ vagrant-serverspec ] (https://github.com/jvoorhis/vagrant-serverspec)
+* [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater)
+* [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
+* [vagrant-serverspec](https://github.com/jvoorhis/vagrant-serverspec)
 
-##  Использование
+## Usage
 
-###  1. Установите виртуальный бокс
+### 1. Install Virtualbox
 
-Загрузите форму VirtualBox [ www.virtualbox.org ] (https://www.virtualbox.org) и установите.
+Download the VirtualBox form [www.virtualbox.org](https://www.virtualbox.org) and install.
 
 
-###  2. Установите Vagrant
+### 2. Install Vagrant
 
-Загрузите форму Vagrant [ www.vagrantup.com ] (https://www.vagrantup.com) и установите.
+Download the Vagrant form [www.vagrantup.com](https://www.vagrantup.com) and install.
 
-###  3. Загрузите Ansible playbooks VAW
+### 3. Download Ansible playbooks of the VAW
 
-Загрузите плейбуки Vagrantfile и Ansible по следующей ссылке.
+Download a Vagrantfile and Ansible playbooks from the following link.
 
-[ Страница релизов ](https://github.com/thingsym/vaw/releases)
+[Releases page](https://github.com/thingsym/vaw/releases)
 
-###  4. Сгенерируйте файлы SSL-сертификатов с помощью mkcert
+### 4. Generate SSL certificate files using mkcert
 
-Установите мксерт. См. [ https://github.com/FiloSottile/mkcert ](https://github.com/FiloSottile/mkcert)
+Install mkcert. See [https://github.com/FiloSottile/mkcert](https://github.com/FiloSottile/mkcert)
 
-	компакт-диск вав-ххх
-	mkcert -установить
+	cd vaw-x.x.x
+	mkcert -install
 	mkdir mkcert
-	компакт-диск mkcert
+	cd mkcert
 	mkcert -cert-file cert.pem -key-file privkey.pem <vm_hostname>
 
-###  5. Запускаем виртуальную среду
+### 5. Launch a virtual environment
 
-	компакт-диск вав-ххх
-	бродить вверх
+	cd vaw-x.x.x
+	vagrant up
 
-Если у вас изначально нет Box, начните с загрузки Box.
-После подготовки вы можете запустить среду разработки WordPress.
+If you don't have a Box at first, begins from the download of Box.
+After provisioning, you can launch a WordPress development environment.
 
-Примечание. Без пароля для Vagrant::Hostsupdater. См. [Подавление запросов на повышение привилегий
-] (https://github.com/agiledivider/vagrant-hostsupdater#suppressing-prompts-for-elevating-privacy)
+Note: Passwordless for Vagrant::Hostsupdater. See [Suppressing prompts for elevating privileges
+](https://github.com/agiledivider/vagrant-hostsupdater#suppressing-prompts-for-elevating-privileges)
 
-###  6. Доступ к сайту и администратору WordPress
+### 6. Access to the website and the WordPress Admin
 
-Доступ к сайту **http://vaw.local/** . Доступ к админке WordPress **http://vaw.local/wp-admin/** .
+Access to the website **http://vaw.local/**. Access to the WordPress admin **http://vaw.local/wp-admin/**.
 
-###  7. Доступ к Vagrant-машине через SSH
+### 7. Access to a Vagrant machine via SSH
 
-	бродячий ssh
+	vagrant ssh
 
-Или с помощью конфигурации ssh.
+Or using ssh config.
 
-	бродячий ssh-config > ssh_config.cache
-	ssh -F ssh_config.cache по умолчанию
+	vagrant ssh-config > ssh_config.cache
+	ssh -F ssh_config.cache default
 
-##  Переменные конфигурации по умолчанию
+## Default configuration Variables
 
-Идентификатор и пароль для начальной настройки следующие. Можно задать в файле конфигурации обеспечения.
+ID and password for the initial setting is as follows. Can be set in the provisioning configuration file.
 
-####  База данных
+#### Database
 
-* ПОЛЬЗОВАТЕЛЬ ROOT `root`
-* ПАРОЛЬ ROOT `admin`
-* ХОСТ `localhost`
-* ИМЯ БАЗЫ ДАННЫХ `wordpress`
-* ПОЛЬЗОВАТЕЛЬ `admin`
-* ПАРОЛЬ `admin`
+* ROOT USER `root`
+* ROOT PASSWORD `admin`
+* HOST `localhost`
+* DATABASE NAME `wordpress`
+* USER `admin`
+* PASSWORD `admin`
 
-####  Администратор WordPress
+#### WordPress Admin
 
-* ПОЛЬЗОВАТЕЛЬ `admin`
-* ПАРОЛЬ `admin`
+* USER `admin`
+* PASSWORD `admin`
 
-##  Настроить параметры
+## Customize Options
 
-Вы можете создавать различные среды, которые редактируют файлы конфигурации VAW.
+You can build a variety of environment that edit configuration files of the VAW.
 
-Есть два файла конфигурации, которые вы можете настроить.
+There are two configuration files you can customize.
 
-* Бродячий файл
+* Vagrantfile
 * group_vars/all.yml
 
-Запустите `vagrant up` или `vagrant provision` после редактирования файлов конфигурации.
+Run `vagrant up` or `vagrant provision`, after editing the configuration files.
 
-###  Файл конфигурации Vagrant (Ruby)
+### Vagrant configuration file (Ruby)
 
-Файл конфигурации Vagrant — **Vagrantfile** .
+Vagrant configuration file is **Vagrantfile**.
 
-Vagrantfile установит vagrant Box, частный IP-адрес, имя хоста и корень документа.
+Vagrantfile will set the vagrant Box, private IP address, hostname and the document root.
 
-Если вы запускаете несколько сред, измените имя каталога. Следует переписать `vm_ip` и `vm_hostname` . Обратите внимание, чтобы не пересекаться с другими средами.
+If you launch multiple environments, change the name of the directory. Should rewrite `vm_ip` and `vm_hostname`. Note not to overlap with other environments.
 
-Вы можете получить доступ с терминала в той же локальной сети, чтобы использовать общедоступную сеть для виртуальной среды Vagrant. Чтобы использовать общедоступные сети, установите IP-адрес для мостового соединения в `public_ip` . В этом случае рекомендуется настроить тот же IP-адрес на `vm_hostname` .
+You can accesse from a terminal in the same LAN to use the public network to Vagrant virtual environment. To use public networks, set IP address for bridged connection to `public_ip`. In that case, recommended that configure the same IP address to `vm_hostname`.
 
-	## Бродячие настройки ##
-	vm_box = 'центос/7'
-	vm_box_version = '>= 0'
-	vm_ip = '192.168.46.49'
-	vm_hostname = 'vaw.local'
-	vm_document_root = '/var/www/html'
+	## Vagrant Settings ##
+	vm_box                = 'centos/7'
+	vm_box_version        = '>= 0'
+	vm_ip                 = '192.168.56.49'
+	vm_hostname           = 'vaw.local'
+	vm_document_root      = '/var/www/html'
 
-	public_ip = ''
+	public_ip             = ''
 
-	перенаправленный_порт = [
+	forwarded_port        = [
 		3000,
 		3001,
 		1025,
 		8025
 	]
 
-	vbguest_auto_update = правда
-	synced_folder_type = 'virtualbox' # виртуальный ящик|nfs|rsync|smb
+	vbguest_auto_update   = true
+	synced_folder_type    = 'virtualbox' # virtualbox|nfs|rsync|smb
 
-	резервная_база данных = ложь
+	backup_database       = false
 
-	ansible_install_mode = :default # :default|:pip
-	ansible_version = 'latest' # только: требуется pip
+	ansible_install_mode  = :default    # :default|:pip
+	ansible_version       = 'latest'    # only :pip required
 
-	provision_mode = 'all' # все|wordpress|коробка
+	provision_mode        = 'all'       # all|wordpress|box
 
-	бродячие_плагины = [
+	vagrant_plugins       = [
 		'vagrant-hostsupdater',
-		'бродяга-vbguest',
+		'vagrant-vbguest',
 		'vagrant-serverspec'
 	]
 
-*  `vm_box` (обязательно) имя Vagrant Box (по умолчанию: `centos/7` )
-*  `vm_box_version` (обязательно) версия Vagrant Box (по умолчанию: `>= 0` )
-*  `vm_ip` (обязательно) частный IP-адрес (по умолчанию: `192.168.46.49` )
-*  `vm_hostname` (обязательно) имя хоста (по умолчанию: `vaw.local` )
-*  `vm_document_root` (обязательно) путь к корню документа (по умолчанию: `/var/www/html` )
-	* автоматическое создание каталога `wordpress` и синхронизация
-*  `public_ip` IP-адрес мостового соединения (по умолчанию: `''` )
-*  `forwarded_port` список портов, которые вы хотите передать (по умолчанию: `[3000, 3001, 1025, 8025]` )
-	* 3000: автоматически обнаруженный порт Browsersync
-	* 3001: порт пользовательского интерфейса синхронизации браузера
-	* 1025: Порт MailHog SMTP по умолчанию
-	* 8025: HTTP-порт MailHog по умолчанию
-*  `vbguest_auto_update` , следует ли обновлять гостевые дополнения VirtualBox (по умолчанию: `true` / значение: `true` | `false` )
-トします (по умолчанию: `true` / значение: `true` | `false` )
-*  `synced_folder_type` тип синхронизируемой папки (по умолчанию: `virtualbox` / значение: `virtualbox` | `nfs` | `rsync` | `smb` )
-*  `backup_database` включает автоматическое резервное копирование базы данных при бродячем уничтожении или остановке (по умолчанию: `false` / значение: `true` | `false` )
-*  `ansible_install_mode` (обязательно) способ установки Ansible (по умолчанию: `:default` / значение: `:default` | `:pip` )
-*  `ansible_version` версия Ansible для установки (по умолчанию: `последняя` )
-*  `provision_mode` (обязательно) Режим подготовки (по умолчанию: `all` / значение: `all` | `wordpress` | `box` )
-*  `vagrant_plugins` устанавливает бродячие плагины
+* `vm_box` (required) name of Vagrant Box (default: `centos/7`)
+* `vm_box_version` (required) version of Vagrant Box (default: `>= 0`)
+* `vm_ip` (required) private IP address (default: `192.168.46.49`)
+* `vm_hostname` (required) hostname (default: `vaw.local`)
+* `vm_document_root` (required) document root path (default: `/var/www/html`)
+	* auto create `wordpress` directory and synchronized
+* `public_ip` IP address of bridged connection (default: `''`)
+* `forwarded_port` list of ports that you want to transfer (default: `[ 3000, 3001, 1025, 8025 ]`)
+	* 3000: Browsersync auto-detected port
+	* 3001: Browsersync ui port
+	* 1025: MailHog SMTP default port
+	* 8025: MailHog HTTP default port
+* `vbguest_auto_update` whether to update VirtualBox Guest Additions (default: `true` / value: `true` | `false`)
+トします (default: `true` / value: `true` | `false`)
+* `synced_folder_type` the type of synced folder (default: `virtualbox` / value: `virtualbox` | `nfs` | `rsync` | `smb`)
+* `backup_database` enable auto database backup when vagrant destroy or halt (default: `false` / value: `true` | `false`)
+* `ansible_install_mode` (required) the way to install Ansible (default: `:default` / value: `:default` | `:pip`)
+* `ansible_version` version of Ansible to install (default: `latest`)
+* `provision_mode` (required) Provisioning mode (default: `all` / value: `all` | `wordpress` | `box`)
+* `vagrant_plugins` install vagrant plugins
 
-###  Файл конфигурации подготовки (YAML)
+### Provisioning configuration file (YAML)
 
-Файл конфигурации подготовки — **group_vars/all.yml** .
+Provisioning configuration file is **group_vars/all.yml**.
 
-В формате YAML вы можете установить сервер, базу данных и среду WordPress. И может включить инструменты разработки и развертывания.
+In YAML format, you can set server, database and WordPress environment. And can enable the develop and deploy tools.
 
-	## Настройки сервера и базы данных ##
+	## Server & Database Settings ##
 
-	сервер: апач # апач|nginx|h2o
-	fastcgi : нет # нет|php-fpm
+	server             : apache   # apache|nginx|h2o
+	fastcgi            : none     # none|php-fpm
 
-	база данных: mariadb # mariadb|mysql|percona
-	db_root_password : администратор
+	database           : mariadb  # mariadb|mysql|percona
+	db_root_password   : admin
 
-	db_host : локальный хост
-	имя_базы_данных: wordpress
-	db_user: администратор
-	db_password: администратор
-	db_prefix : wp_
-	db_charset: ''
-	db_collate : '' # utf8mb4_general_ci
+	db_host            : localhost
+	db_name            : wordpress
+	db_user            : admin
+	db_password        : admin
+	db_prefix          : wp_
+	db_charset         : ''
+	db_collate         : '' # utf8mb4_general_ci
 
-	## Настройки WordPress ##
+	## WordPress Settings ##
 
-	Название: VAW (Бродячий Ansible WordPress)
-	admin_user : администратор
-	admin_password : админ
-	admin_email : hoge@example.com
+	title              : VAW (Vagrant Ansible WordPress)
+	admin_user         : admin
+	admin_password     : admin
+	admin_email        : hoge@example.com
 
-	# например, последняя, ​​ночная, 4.1, 4.1-beta1
-	# см. Архив релизов - https://wordpress.org/download/release-archive/
-	# 3.7 или выше для корректной работы
-	версия: последняя
+	# e.g. latest, nightly, 4.1, 4.1-beta1
+	# see Release Archive - https://wordpress.org/download/release-archive/
+	# 3.7 or later to work properly
+	version            : latest
 
-	# например en_US, ja, ...
-	# см. список wordpress-i18n - http://svn.automattic.com/wordpress-i18n/
-	язык: en_US
+	# e.g. en_US, ja, ...
+	# see wordpress-i18n list - http://svn.automattic.com/wordpress-i18n/
+	lang               : en_US
 
-	# в собственном каталоге или подкаталоге install.
-	# см. http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory
-	wp_dir : '' #например, /wordpress
-	wp_site_path : '' #например, /wordpress
+	# in own directory or subdirectory install.
+	# see http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory
+	wp_dir             : ''   #e.g. /wordpress
+	wp_site_path       : ''   #e.g. /wordpress
 
-	мультисайт : ложь # правда|ложь
+	multisite          : false   # true|false
 
-	# тема по умолчанию|slug|url|zip (локальный путь, /vagrant/themes/*.zip)
-	активировать_тема: ''
-	темы: []
+	# default theme|slug|url|zip (local path, /vagrant/themes/*.zip)
+	activate_theme     : ''
+	themes             : []
 
-	# slug|url|zip (локальный путь, /vagrant/plugins/*.zip)
-	активировать_плагины:
-	                        - проверка темы
-	                        - log-deprecated-notifications
-	                        - панель отладки
-	                        - запрос-монитор
-	                        - проверка неработающих ссылок
-	плагины:
-	                        - разработчик
-	                        - монстр-виджет
-	                        - wordpress-бета-тестер
-	                        - wp-многобайтовый патч
+	# slug|url|zip (local path, /vagrant/plugins/*.zip)
+	activate_plugins   :
+	                        - theme-check
+	                        - log-deprecated-notices
+	                        - debug-bar
+	                        - query-monitor
+	                        - broken-link-checker
+	plugins            :
+	                        - developer
+	                        - monster-widget
+	                        - wordpress-beta-tester
+	                        - wp-multibyte-patch
 
-	тема_мод : {}
+	theme_mod          : {}
 
-	# см. Справочник по вариантам - http://codex.wordpress.org/Option_Reference
-	опции : {}
+	# see Option Reference - http://codex.wordpress.org/Option_Reference
+	options            : {}
 
-	# например, /%year%/%monthnum%/%postname%
-	# см. http://codex.wordpress.org/Using_Permalinks
-	постоянная_структура_ссылки :
-	                      состав : ''
-	                      категория : ''
-	                      ярлык : ''
+	# e.g. /%year%/%monthnum%/%postname%
+	# see http://codex.wordpress.org/Using_Permalinks
+	permalink_structure  :
+	                      structure   : ''
+	                      category    : ''
+	                      tag         : ''
 
-	# Любой из 4-х способов импорта
-	import_xml_data : '' # локальный путь, /vagrant/import/*.xml
-	import_db_data : '' # локальный путь, /vagrant/import/*.sql
-	import_backwpup :
-	                      path : '' # локальный путь, /vagrant/import/*.zip
-	                      db_data_file : ''
+	# Any one of 4 ways to import
+	import_xml_data    : ''   # local path, /vagrant/import/*.xml
+	import_db_data     : ''   # local path, /vagrant/import/*.sql
+	import_backwpup    :
+	                      path          : ''   # local path, /vagrant/import/*.zip
+	                      db_data_file  : ''
 	                      xml_data_file : ''
-	import_admin : ложь # правда|ложь
-	theme_unit_test : ложь # правда|ложь
+	import_admin       : false   # true|false
+	theme_unit_test    : false   # true|false
 
-	replace_old_url : [] # http(s)://example.com, на vm_hostname со старого URL
-	search_replace_strings : {}
-	regenerate_thumbnails : ложь # правда|ложь
+	replace_old_url         : [] # http(s)://example.com, to vm_hostname from old url
+	search_replace_strings  : {}
+	regenerate_thumbnails   : false   # true|false
 
-	WP_DEBUG : правда # правда|ложь
-	SAVEQUERIES : true # true|false
+	WP_DEBUG           : true   # true|false
+	SAVEQUERIES        : true   # true|false
 
-	## Параметры разработки и развертывания ##
+	## Develop & Deploy Settings ##
 
-	ssl : правда # правда|ложь
-	http_протокол : https # http|https
+	ssl                : true   # true|false
+	http_protocol      : https   # http|https
 
-	# См. Поддерживаемые версии http://php.net/supported-versions.php
-	php_версия: 7.4.14
+	# See Supported Versions http://php.net/supported-versions.php
+	php_version        : 7.4.14
 
-	develop_tools : ложь # правда|ложь
-	deploy_tools : ложь # правда|ложь
+	develop_tools      : false   # true|false
+	deploy_tools       : false   # true|false
 
-	## Это все, прекратите настройку. Давайте бродить вверх!! ##
+	## That's all, stop setting. Let's vagrant up!! ##
 
-	WP_URL : '{{ http_protocol }}://{{ HOSTNAME }}{{ wp_site_path }}'
-	WP_PATH : '{{DOCUMENT_ROOT}}{{ wp_dir }}'
+	WP_URL             : '{{ http_protocol }}://{{ HOSTNAME }}{{ wp_site_path }}'
+	WP_PATH            : '{{ DOCUMENT_ROOT }}{{ wp_dir }}'
 
 
-####  Настройки сервера и базы данных ##
+#### Server & Database Settings ##
 
-*  `server` (обязательно) имя веб-сервера (по умолчанию: `apache` / значение: `apache` | `nginx` | `h2o` )
-*  `fastcgi` имя fastCGI (по умолчанию: `none` / значение: `none` | `php-fpm` )
-*  `database` (обязательно) имя базы данных (по умолчанию: `mariadb` / значение: `mariadb` | `mysql` | `percona` )
-*  `db_root_password` (обязательно) пароль root базы данных (по умолчанию: `admin` )
-*  `db_host` (обязательно) хост базы данных (по умолчанию: `localhost` )
-*  `db_name` (обязательно) имя базы данных (по умолчанию: `wordpress` )
-*  `db_user` (обязательно) имя пользователя базы данных (по умолчанию: `admin` )
-*  `db_password` (обязательно) пароль пользователя базы данных (по умолчанию: `admin` )
-* префикс базы данных  `db_prefix` (по умолчанию: `wp_` )
-* Набор символов базы данных  `db_charset` (по умолчанию: `''` )
-* Сопоставление базы данных  `db_collate` (по умолчанию: `''` )
+* `server` (required) name of web server (default: `apache` / value: `apache` | `nginx` | `h2o`)
+* `fastcgi` name of fastCGI (default: `none` / value: `none` | `php-fpm`)
+* `database` (required) name of databese (default: `mariadb` / value: `mariadb` | `mysql` | `percona`)
+* `db_root_password` (required) database root password (default: `admin`)
+* `db_host` (required) database host (default: `localhost`)
+* `db_name` (required) name of database (default: `wordpress`)
+* `db_user` (required) database user name (default: `admin`)
+* `db_password` (required) database user password (default: `admin`)
+* `db_prefix` database prefix (default: `wp_`)
+* `db_charset` database character set (default: `''`)
+* `db_collate` database collation (default: `''`)
 
-####  Настройки WordPress ##
+#### WordPress Settings ##
 
-*  `title` заголовок сайта WordPress (по умолчанию: `VAW (Vagrant Ansible WordPress)` )
-*  `admin_user` (обязательно) Имя администратора WordPress (по умолчанию: `admin` )
-*  `admin_password` (обязательно) пароль администратора WordPress (по умолчанию: `admin` )
-*  `admin_email` (обязательно) адрес электронной почты администратора WordPress (по умолчанию: `hoge@example.com` )
-*  `версия` (обязательная) версия WordPress (по умолчанию: `последняя` )
-	* например , «последняя» , «4.1» , «4.1-beta1 »
-	* см. [ Архив релизов ] (https://wordpress.org/download/release-archive/)
-	* версия 3.7 или более поздняя для правильной работы
-*  `lang` (обязательно) WordPress на вашем языке (по умолчанию: `en_US` )
-	* например `en_US` , `ja` , ...
-	* см. [ список wordpress-i18n ](http://svn.automattic.com/wordpress-i18n/)
+* `title` WordPress site title (default: `VAW (Vagrant Ansible WordPress)`)
+* `admin_user` (required) WordPress admin user name (default: `admin`)
+* `admin_password` (required) WordPress admin user password (default: `admin`)
+* `admin_email` (required) WordPress admin email address (default: `hoge@example.com`)
+* `version` (required) version of WordPress (default: `latest`)
+	* e.g. `latest`, `4.1`, `4.1-beta1`
+	* see [Release Archive](https://wordpress.org/download/release-archive/)
+	* version 3.7 or later to work properly
+* `lang` (required) WordPress in your language (default: `en_US`)
+	* e.g. `en_US`, `ja`, ...
+	* see [wordpress-i18n list](http://svn.automattic.com/wordpress-i18n/)
 
-* Путь каталога  `wp_dir` к подкаталогу установки WordPress (по умолчанию: установка в корень документа)
-*  `wp_site_path` путь к сайту (по умолчанию: корень документа)
-	* Если `wp_dir` и `wp_site_path` имеют один и тот же путь, установка производится в собственном каталоге.
-	* Если `wp_dir` и `wp_site_path` разные пути, установите в подкаталог. Обратите внимание, что `wp_site_path` должен располагаться над каталогом, чем `wp_dir` .
-	* см. [ Предоставление WordPress собственного каталога ](http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory)
+* `wp_dir` directory path to subdirectory install WordPress (default: install to document root)
+* `wp_site_path` path of site (default: document root)
+	* If `wp_dir` and `wp_site_path` are the same path, in own directory install.
+	* If `wp_dir` and `wp_site_path` are different path, install to subdirectory. Note that `wp_site_path` be placed on one above the directory than `wp_dir`.
+	* see [Giving WordPress Its Own Directory](http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory)
 
-*  `multisite` Флаг включения многосайтовости (по умолчанию: `false` / значение: `true` | `false` )
-*  `activate_theme` установить тему и активировать (по умолчанию: тема по умолчанию)
-	* установить тему по умолчанию `''` , `theme slug` , `URL-адрес zip-файла` или   `локальный путь к zip-файлу`
-	* установить `/vagrant/themes/*.zip` по локальному пути к zip-файлу
-*  `темы` установить темы
-	* задайте в формате YAML массивы хэшей `theme slug` , `URL-адрес zip-файла` или `локальный путь к zip-файлу`
-	* установить `/vagrant/themes/*.zip` по локальному пути к zip-файлу
+* `multisite` Multisite enabled flag (default: `false` / value: `true` | `false`)
+* `activate_theme` install a theme and activated (default: default theme)
+	* set default theme `''`, `theme slug`, `zip file URL` or  `local zip file path`
+	* set `/vagrant/themes/*.zip` by local zip file path
+* `themes` install themes
+	* set in YAML arrays of hashes format `theme slug`, `zip file URL` or `local zip file path`
+	* set `/vagrant/themes/*.zip` by local zip file path
 
-Пример конфигурации
+Configuration example
 
-	темы :
-	                     - Йоко
-	                     - Отзывчивый
+	themes             :
+	                     - yoko
+	                     - Responsive
 
-Отключить настройку регистра
+Disable the setting case
 
-	темы: []
+	themes             : []
 
-*  `activate_plugins` устанавливает плагины и активирует их
-	* установить в YAML массивы хэшей в формате `plugin slug` , `URL файла zip` или `локальный путь к zip файлу`
-	* установить `/vagrant/plagins/*.zip` по пути локального zip-файла
+* `activate_plugins` install plagins and activated
+	* set in YAML arrays of hashes format `plagin slug`, `zip file URL` or `local zip file path`
+	* set `/vagrant/plagins/*.zip` by local zip file path
 
-Пример конфигурации
+Configuration example
 
-	активировать_плагины:
-	                        - проверка темы
-	                        - плагин-проверка
+	activate_plugins   :
+	                        - theme-check
+	                        - plugin-check
 
-Отключить настройку регистра
+Disable the setting case
 
-	активировать_плагины: []
+	activate_plugins   : []
 
-*  `плагины` установить плагины
-	* установить в YAML массивы хэшей в формате `plugin slug` , `URL файла zip` или `локальный путь к zip файлу`
-	* установить `/vagrant/plagins/*.zip` по пути локального zip-файла
+* `plugins` install plagins
+	* set in YAML arrays of hashes format `plagin slug`, `zip file URL` or `local zip file path`
+	* set `/vagrant/plagins/*.zip` by local zip file path
 
-*  `theme_mod` установка theme_mod (значение модификации темы)
-	* см. [ set_theme_mod() ](http://codex.wordpress.org/Function_Reference/set_theme_mod)
-	* задается в формате вложенного хэша YAML
+* `theme_mod` setting theme_mod (theme modification value)
+	* see [set_theme_mod()](http://codex.wordpress.org/Function_Reference/set_theme_mod)
+	* set in YAML nested hash format
 
-Пример конфигурации
+Configuration example
 
-	тема_мод :
+	theme_mod          :
 	                       background_color: 'cccccc'
 
-Отключить настройку регистра
+Disable the setting case
 
-	тема_мод : {}
+	theme_mod          : {}
 
-*  параметры настройки `options`
-	* см. [ update_option() ](http://codex.wordpress.org/Function_Reference/update_option) и [ Справочник по параметрам ](http://codex.wordpress.org/Option_Reference)
-	* задается в формате вложенного хэша YAML
+* `options` setting options
+	* see [update_option()](http://codex.wordpress.org/Function_Reference/update_option) and [Option Reference](http://codex.wordpress.org/Option_Reference)
+	* set in YAML nested hash format
 
-Пример конфигурации
+Configuration example
 
-	опции :
-	                       blogname: 'название блога'
-	                       blogdescription: 'описание блога'
+	options            :
+	                       blogname: 'blog title'
+	                       blogdescription: 'blog description'
 
-Отключить настройку регистра
+Disable the setting case
 
-	опции : {}
+	options            : {}
 
-*  `permalink_structure` установка структуры постоянной ссылки
-	* установить следующие три структуры постоянных ссылок
-	* см. [ Использование постоянных ссылок ](http://codex.wordpress.org/Using_Permalinks)
-	*  `structure` устанавливает структуру постоянной ссылки, используя теги структуры
-	*  `category` установить префикс категории архива
-	*  `tag` установить префикс тега архива
-*  `import_xml_data` локальный путь к файлу экспорта WordPress (WXR) `/vagrant/import/*.xml`
-*  `import_db_data` путь к локальному файлу дампа sql `/vagrant/import/*.sql`
-*  `import_backwpup`
-	*  `path` Путь к архивному файлу `/vagrant/import/*.zip` (Zip, Tar, Tar GZip, Tar BZip2)
-	*  `db_data_file` Имя файла резервной копии БД (Импорт из одного из файлов данных)
-	*  `xml_data_file` Имя файла экспорта XML (импортируется из одного из файлов данных)
-*  `import_admin` Добавить пользователя-администратора WordPress (по умолчанию: `false` / значение: `true` | `false` )
-*  `theme_unit_test` флаг включения импорта данных Theme Unit Test (по умолчанию: `false` / значение: `true` | `false` )
-*  `replace_old_url` заменить на `vm_hostname` из `старого URL`
+* `permalink_structure` setting permalink structure
+	* set the following three permalink structures
+	* see [Using Permalinks](http://codex.wordpress.org/Using_Permalinks)
+	* `structure` set the permalink structure using the structure tags
+	* `category` set the prefix of the category archive
+	* `tag` set the prefix of the tag archive
+* `import_xml_data` local WordPress export (WXR) file path `/vagrant/import/*.xml`
+* `import_db_data` local sql dump file path `/vagrant/import/*.sql`
+* `import_backwpup`
+	* `path` Archive file path `/vagrant/import/*.zip` (Zip, Tar, Tar GZip, Tar BZip2)
+	* `db_data_file` DB backup file name (Import from one of data files)
+	* `xml_data_file` XML export file name (imported from one of the data files)
+* `import_admin` Add WordPress administrator user (default: `false` / value: `true` | `false`)
+* `theme_unit_test` import Theme Unit Test data enabled flag (default: `false` / value: `true` | `false`)
+* `replace_old_url` replace to `vm_hostname` from `old url`
 
-Пример конфигурации
+Configuration example
 
-	replace_old_url :
+	replace_old_url         :
 	                           - http://example.com
 	                           - http://www.example.com
 	                           - https://example.com
 
-Отключить настройку регистра
+Disable the setting case
 
-	replace_old_url : []
+	replace_old_url         : []
 
-*  `search_replace_strings` Поиск в базе данных и замена совпадающей строки
+* `search_replace_strings` Search the database and replace the matched string
 
-Пример конфигурации
+Configuration example
 
-	search_replace_strings :
-	                           'фу': 'бар'
+	search_replace_strings  :
+	                           'foo': 'bar'
 	                           'abc': 'xyz'
-	                           «Привет, мир!»: «Добро пожаловать в WordPress!»
+	                           'Hello, World!': 'Welcome to WordPress!'
 
-Отключить настройку регистра
+Disable the setting case
 
-	search_replace_strings : {}
+	search_replace_strings  : {}
 
-*  ` regenerate_thumbnails` флаг включения регенерации эскизов (по умолчанию: `false` / значение: `true` | `false` )
-* Режим отладки  `WP_DEBUG` (по умолчанию: `true` / значение: `true` | `false` )
-*  `SAVEQUERIES` сохраняет запросы к базе данных (по умолчанию: `true` / значение: `true` | `false` )
+* `regenerate_thumbnails` regenerate thumbnails enabled flag (default: `false` / value: `true` | `false`)
+* `WP_DEBUG` debug mode (default: `true` / value: `true` | `false`)
+* `SAVEQUERIES` save the database queries (default: `true` / value: `true` | `false`)
 
-####  Параметры разработки и развертывания ##
+#### Develop & Deploy Settings ##
 
-*  `ssl` Администрирование WordPress с включенным флагом SSL (по умолчанию: `true` / значение: `true` | `false` )
-*  `http_protocol` HTTP-протокол (по умолчанию: `https` / значение: `http` | `https` )
-* Версия PHP `  php_version` (по умолчанию: `7.4.14` )
-*  `develop_tools` активирует инструменты разработки (по умолчанию: `false` / значение: `true` | `false` )
-*  `deploy_tools` активирует инструменты развертывания (по умолчанию: `false` / значение: `true` | `false` )
+* `ssl` WordPress administration over SSL enabled flag (default: `true` / value: `true` | `false`)
+* `http_protocol` HTTP protocol (default: `https` / value: `http` | `https`)
+* `php_version` version of PHP (default: `7.4.14`)
+* `develop_tools` activate develop tools (default: `false` / value: `true` | `false`)
+* `deploy_tools` activate deploy tools (default: `false` / value: `true` | `false`)
 
-##  Макет каталога
+## Directory Layout
 
-Структура каталогов VAW выглядит следующим образом.
+Directory structure of the VAW is as follows.
 
-Этот каталог синхронизируется со стороной гостевой ОС `/vagrant` . `wordpress` создает автоматически и синхронизируется с `vm_document_root` .
+This directory synchronize to the guest OS side `/vagrant`. `wordpress` creates automatically and synchronize to `vm_document_root`.
 
-`wp-content` — это каталог, в котором хранятся темы WordPress, плагины и загружаемые файлы. `wp-content` будет автоматически помещен в WordPress, который был создан во время предоставления, если вы поместите `wp-content` в этот каталог из производственной среды.
+`wp-content` is a directory that stores WordPress themes, plugins, and upload files. `wp-content` will be placed automatically in WordPress which was built at the time of provisioning, if you place `wp-content` in this directory from the production environment.
 
-«uploads» — это каталог, в котором хранятся файлы загрузки в каталоге «wp-content » WordPress. «Загрузки » будут автоматически размещены в WordPress, который был создан во время подготовки, если вы поместите «загрузки» в этот каталог из производственной среды.
+`uploads` is a directory where stored upload files in `wp-content` directory of WordPress. `uploads` will be placed automatically in WordPress which was built at the time of provisioning, if you place `uploads` in this directory from the production environment.
 
-Вы можете создать ту же среду, что и производственная среда, когда вы создаете WordPress, импортируя данные дампа базы данных, заменяя URL-адрес, регенерируя миниатюру изображения. Вы можете установить все из файла конфигурации подготовки.
+You can create the same environment as the production environment, when you build a wordpress by import database dump data, substitution of url, regeneration of thumbnail image. You can set all from the provisioning configuration file.
 
-###  Полный макет
+### Full Layout
 
-* резервная копия (хранит файл резервной копии. Создается автоматически при запуске скрипта, если он не существует.)
-* команда (сохраняет сценарий оболочки)
-* config (сохраняет пользовательскую конфигурацию)
-* config.sample (образец пользовательской конфигурации)
-* group_vars (хранит файл конфигурации подготовки Ansible)
-	* all.yml (файл конфигурации подготовки)
-* хозяева
-	* локальный (инвентарный файл)
-* import (сохраняет данные импорта, если это необходимо)
-* ЛИЦЕНЗИЯ (файл лицензии)
-* плагины (при необходимости хранит файлы в формате zip для плагинов WordPress)
-* mkcert (хранит файлы сертификатов SSL)
-* Rakefile (Rakefile из ServerSpec)
+* backup (stores backup file. create automatically at running script, if it does not exist.)
+* command (stores shell script)
+* config (stores Custom Config)
+* config.sample (sample Custom Config)
+* group_vars (stores the provisioning configuration file of Ansible)
+	* all.yml (provisioning configuration file)
+* hosts
+	* local (inventory file)
+* import (stores import data, if necessary)
+* LICENSE (license file)
+* plugins (stores WordPress plugin zip format files, if necessary)
+* mkcert (stores SSL certificate files)
+* Rakefile (Rakefile of ServerSpec)
 * README-ja.md
 * README.md
-* роли (хранит Ansible playbook для каждой роли)
-* site.yml (основной файл Ansible playbook)
-* spec (хранит файл спецификации ServerSpec)
-	* коробка
-	* локальный хост
+* roles (stores Ansible playbook of each role)
+* site.yml (Ansible playbook core file)
+* spec (stores ServerSpec spec file)
+	* box
+	* localhost
 	* spec_helper.rb
-	* синхронизация-директор
-* темы (при необходимости хранит файлы в формате zip темы WordPress)
-* uploads (каталог закачек в wp-content)
-* Vagrantfile (файл конфигурации Vagrant)
-* wordpress (синхронизировать с корнем документа. Создавать автоматически в `vagrant up` , если он не существует.)
-* wp-content (каталог wp-content WordPress)
+	* sync-dir
+* themes (stores WordPress theme zip format files, if necessary)
+* uploads (uploads directory in the wp-content)
+* Vagrantfile (Vagrant configuration file)
+* wordpress (synchronize to the Document Root. create automatically at `vagrant up`, if it does not exist.)
+* wp-content (WordPress's wp-content directory)
 
-###  Минимальный макет
+### Minimum Layout
 
-VAW будет построен в структуре каталогов следующего минимального устройства.
+The VAW will be built in the directory structure of the following minimum unit.
 
-* group_vars (хранит файл конфигурации подготовки Ansible)
-	* all.yml (файл конфигурации подготовки)
-* хозяева
-	* локальный (инвентарный файл)
-* роли (хранит Ansible playbook для каждой роли)
-* site.yml (основной файл Ansible playbook)
-* Vagrantfile (файл конфигурации Vagrant)
-* wordpress (синхронизировать с корнем документа. Создавать автоматически в `vagrant up` , если он не существует.)
+* group_vars (stores the provisioning configuration file of Ansible)
+	* all.yml (provisioning configuration file)
+* hosts
+	* local (inventory file)
+* roles (stores Ansible playbook of each role)
+* site.yml (Ansible playbook core file)
+* Vagrantfile (Vagrant configuration file)
+* wordpress (synchronize to the Document Root. create automatically at `vagrant up`, if it does not exist.)
 
 
-##  Бродячий ящик
+## Vagrant Box
 
-VAW поддерживает VirtualBox для провайдеров Vagrant. Поддерживаемые операционные системы CentOS, Debian и Ubuntu Boxes. Поддерживаемая архитектура ОС x86_64. Подробности следующие:
+The VAW supports VirtualBox for providers of Vagrant. Operating system supported CentOS, Debian and Ubuntu Boxes. OS architecture supported x86_64. Details are as follows:
 
-###  ЦенОС
+### CentOS
 
-* CentOS 8 (устарела 31 декабря 2021 г.)
-* ЦенОС 7
-* CentOS 6 (устарела 30 ноября 2020 г.)
+* CentOS 8 (Deprecated ended 2021-12-31)
+* CentOS 7
+* CentOS 6 (Deprecated ended 2020-11-30)
 
-###  Дебиан
+### Debian
 
-* Дебиан 10.0
-* Дебиан 9.0
-* Debian 8.0 (устарело 30 июня 2020 г.)
+* Debian 10.0
+* Debian 9.0
+* Debian 8.0 (Deprecated ended 2020-06-30)
 
-###  Убунту
+### Ubuntu
 
-* Убунту 20.04
-* Убунту 18.04
-* Убунту 16.04
-* Убунту 14.04
+* Ubuntu 20.04
+* Ubuntu 18.04
+* Ubuntu 16.04
+* Ubuntu 14.04
 
-Чтобы загрузить Vagrant Box, вы можете выполнить поиск в [ Откройте для себя Vagrant Boxes ](https://app.vagrantup.com/boxes/search?provider=virtualbox).
+To download Vagrant Box, you can search from [Discover Vagrant Boxes](https://app.vagrantup.com/boxes/search?provider=virtualbox).
 
-**Примечание. Поля `vaw/centos*-default` и `vaw/centos*-full` устарели. Отныне мы рекомендуем использовать распределительную коробку.**
+**Note: The `vaw/centos*-default` and `vaw/centos*-full` Boxs has been deprecated. From now on, we recommend using the distribution box.**
 
-По умолчанию Vagrantfile использует поле `vaw/centos*-default` , в котором уже заданы настройки по умолчанию.
+By default, the Vagrantfile uses the `vaw/centos*-default` Box which has already provisioned default settings.
 
-Кроме того, вы можете использовать коробку `vaw/centos*-full` , в которой уже заданы настройки по умолчанию, и активировать инструменты разработки и развертывания.
+In addition, you can use the `vaw/centos*-full` Box which has already provisioned default settings and activate develop and deploy tools.
 
-Вы можете создать среду за короткий период времени по сравнению с подготовкой из чистого vagrant Box.
+You can build the environment in a short period of time compared with provisioning from the pure vagrant Box.
 
-###  CentOS 7 (устарело)
+### CentOS 7 (Deprecated)
 
-* [ vaw/centos7-default ](https://atlas.hashicorp.com/vaw/boxes/centos7-default)
-* [ vaw/centos7-full ](https://atlas.hashicorp.com/vaw/boxes/centos7-full)
+* [vaw/centos7-default](https://atlas.hashicorp.com/vaw/boxes/centos7-default)
+* [vaw/centos7-full](https://atlas.hashicorp.com/vaw/boxes/centos7-full)
 
-###  CentOS 6 (устарело)
+### CentOS 6 (Deprecated)
 
-* [ vaw/centos6-default ](https://atlas.hashicorp.com/vaw/boxes/centos6-default)
-* [ vaw/centos6-full ](https://atlas.hashicorp.com/vaw/boxes/centos6-full)
+* [vaw/centos6-default](https://atlas.hashicorp.com/vaw/boxes/centos6-default)
+* [vaw/centos6-full](https://atlas.hashicorp.com/vaw/boxes/centos6-full)
 
-##  Режим подготовки
+## Provisioning mode
 
-VAW имеет три режима подготовки.
+The VAW has three provisioning modes.
 
-*  `all` будет обычная подготовка из чистого Vagrant Box.
-*  `wordpress` обеспечивает только синхронизацию папок, включая WordPress.
-*  Предоставление `box` для создания Vagrant Box.
+* `all` will normal provisioning from the pure Vagrant Box.
+* `wordpress` provisions only sync folders including WordPress.
+* `box` provision to create a Vagrant Box.
 
-VAW характеризуется возможностью предоставления различных комбинаций конфигурации сервера и базы данных. С другой стороны, требуется время, чтобы построить среду из чистого Vagrant Box.
+The VAW is characterized by being able to provision with various server and database configuration combinations. On the other hand, it takes time to build the environment from pure Vagrant Box.
 
-Вы можете заранее создать Vagrant Box с конфигурацией сервера и базы данных. Используя созданный Vagrant Box, вы можете сократить время подготовки.
+You can create a Vagrant Box with server and database configuration in advance. By using the created Vagrant Box you can shorten the provisioning time.
 
-Сначала создайте Vagrant Box с режимом Provision `box` .
-Затем настройте созданный Vagrant Box в режиме Provision `wordpress` .
-На основе созданного вами Vagrant Box среда разработки WordPress будет быстро запускаться в любое время.
+First, create a Vagrant Box with Provision mode `box`.
+Next, provision the created Vagrant Box with Provision mode `wordpress`.
+Based on the Vagrant Box you created, WordPress development environment will start quickly anytime.

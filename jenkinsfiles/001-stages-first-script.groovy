@@ -19,6 +19,7 @@ pipeline {
             steps {
                 sh 'echo DEPLOYING...'
                 sh 'vagrant up'
+                sh 'vagrant provision'
                 sh 'echo DEPLOY STAGE OK'
             }
         }

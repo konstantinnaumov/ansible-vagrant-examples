@@ -1,19 +1,26 @@
 pipeline {
-  agent any
-  stages {
-  stage('Stage 1') {
-      steps {
-        script {
-          echo 'Stage 1'
-        }
-      }
+    agent {
+        node 'built-in'
     }
-  stage('Stage 2') {
-      steps {
-        script {
-          echo 'Stage 2'
+    stages {
+        stage('Build'){
+            steps {
+                sh 'echo BUILDING...'
+                sh 'echo BUILD ID - ${BUILD_ID}'
+                sh 'echo BUILD STAGE OK'
+            }
         }
-      }
+        stage('Test'){
+            steps {
+                sh 'echo TESTING...'
+            }
+        }
+        stage('Deploy'){
+            steps {
+                sh 'echo DEPLOYING...'
+                sh 'vagrant up'
+                sh 'echo DEPLOY STAGE OK'
+            }
+        }
     }
-  }
 }

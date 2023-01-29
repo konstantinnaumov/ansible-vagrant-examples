@@ -1,0 +1,30 @@
+---
+- name: all packages updated
+  apt:
+    name: '*'
+    state: latest
+  when:
+    - ansible_distribution == 'Ubuntu'
+
+- name: sysv-rc-conf installed
+  package:
+    name: sysv-rc-conf
+    state: latest
+  when: ansible_distribution_major_version is version('14', '==')
+
+- name: apt-transport-https installed
+  package:
+    name: apt-transport-https
+    state: latest
+  when: ansible_distribution == 'Debian'
+
+- name: ntp installed
+  package:
+    name: ntp
+    state: latest
+
+- name: ntp started and enabled
+  service:
+    name: ntp
+    state: restarted
+    enabled: yes

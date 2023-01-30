@@ -1,4 +1,4 @@
-# VAW (Vagrant Ansible WordPress)
+# VAW (Vagrant Ansible WordPress) governed by Jankins
 
 The **VAW (Vagrant Ansible WordPress)** is **Ansible playbooks** for website developer, designer, webmaster and WordPress theme/plugin developer.
 

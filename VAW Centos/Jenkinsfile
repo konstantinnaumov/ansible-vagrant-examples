@@ -1,15 +1,3 @@
-#pipeline {
- #   agent any
-  #  stages {
-   #     stage('deploy'){
-    #        steps {
-     #           sh 'echo DEPLOYING...'
-      #          sh 'vagrant up --provision'
-       #         sh 'echo DEPLOY STAGE OK'
-        #    }
-#        }
-#    }
-#}
 pipeline {
   agent any
   stages {

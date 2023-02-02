@@ -1,18 +1,18 @@
 
-трубопровод {
-  агент любой
-  этапы {
-  стадия( ' Этап 1 ' ) {
-      шаги {
-        сценарий {
-          эхо ' Этап 1 '
+pipeline {
+  agent any
+  stages {
+  stage('Stage 1') {
+      steps {
+        script {
+          echo 'Stage 1'
         }
       }
     }
-  стадия( ' Этап 2 ' ) {
-      шаги {
-        сценарий {
-          эхо ' Этап 2 '
+  stage('Stage 2') {
+      steps {
+        script {
+          echo 'Stage 2'
         }
       }
     }

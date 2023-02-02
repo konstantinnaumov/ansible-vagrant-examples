@@ -9,12 +9,40 @@ pipeline {
         }
       }
     }
-  stage('Stage 2') {
+  stage('Deploy') {
       steps {
         script {
-          echo 'Stage 2'
+                sh 'echo DEPLOYING...'
+                sh 'vagrant up --provision'
+                sh 'echo DEPLOY STAGE OK'     
         }
       }
     }
   }
+}
+pipeline {
+    agent any
+    stages {
+        stage('Build'){
+            steps {
+                sh 'echo BUILDING...'
+                sh 'echo BUILD ID - ${BUILD_ID}'
+                sh 'echo BUILD STAGE OK'
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'echo TESTING...'
+		            sh 'python3 test.py'
+            }
+        }
+        stage('Deploy'){
+            steps {
+                sh 'echo DEPLOYING...'
+                sh 'cd /var/lib/jenkins/workspace/default_develop/VAW Centos/'
+                sh 'vagrant up --provision'
+                sh 'echo DEPLOY STAGE OK'
+            }
+        }
+    }
 }

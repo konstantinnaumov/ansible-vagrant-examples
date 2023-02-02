@@ -1,0 +1,20 @@
+
+pipeline {
+    agent any
+    stages {
+        stage('Build'){
+            steps {
+                sh 'echo BUILDING...'
+                sh 'echo BUILD ID - ${BUILD_ID}'
+                sh 'echo BUILD STAGE OK'
+            }
+        }
+        stage('Deploy'){
+            steps {
+                sh 'echo DEPLOYING...'
+                sh 'cd /var/lib/jenkins/workspace/default_develop/VAW_Centos | vagrant up --provision'
+                sh 'echo DEPLOY STAGE OK'
+            }
+        }
+    }
+}

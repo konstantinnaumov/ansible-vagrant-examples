@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy'){
             steps {
                 sh 'echo DEPLOYING...'
-                sh 'cd /VAW Centos/ | vagrant up --provision'
+                sh 'cd /var/lib/jenkins/workspace/default_develop/VAW Centos/ | vagrant up --provision'
                 sh 'echo DEPLOY STAGE OK'
             }
         }

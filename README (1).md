@@ -153,6 +153,15 @@ There are two configuration files you can customize.
 
 Run `vagrant up` or `vagrant provision`, after editing the configuration files.
 
+# [How To Install Jenkins on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04)
+
+## Jenkins Multibranch Pipeline
+### Test
+Jenkins starts testing the REST API Endpoints are active with the CURL commands written in the test-script.sh.
+### Deploy
+Deploying a pre-configured virtual machine with Vagrant.
+### Backup
+Database data backup. Save at `backup-%Y%m%d%H%M%S.sql` format in the `backup` folder.
 ### Vagrant configuration file (Ruby)
 
 Vagrant configuration file is **Vagrantfile**.

@@ -12,7 +12,8 @@ pipeline {
         stage('Deploy'){
             steps {
                 sh 'echo DEPLOYING...'
-                sh 'vagrant up --provision'
+                sh 'vagrant up'
+                sh 'vagrant provision'
                 sh 'echo DEPLOY STAGE OK'
             }
         }

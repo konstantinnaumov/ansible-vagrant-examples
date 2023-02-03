@@ -2,11 +2,12 @@
 pipeline {
     agent any
     stages {
-        stage('Build'){
+        stage('Test') {
             steps {
-                sh 'echo BUILDING...'
-                sh 'echo BUILD ID - ${BUILD_ID}'
-                sh 'echo BUILD STAGE OK'
+                sh 'chmod 777 ./test-script.sh'
+                sh './test-script.sh'
+                sh 'cat ./test-reports/test_script.log'
+                echo "Test stage gets finished here"
             }
         }
         stage('Deploy'){
@@ -15,6 +16,13 @@ pipeline {
                 sh 'vagrant up'
                 sh 'vagrant provision'
                 sh 'echo DEPLOY STAGE OK'
+            }
+        }
+        stage('Backup'){
+            steps {
+                sh 'cd /var/www/html'
+                sh '/vagrant/command/db_backup.sh'
+                sh 'echo Backup STAGE OK'
             }
         }
     }

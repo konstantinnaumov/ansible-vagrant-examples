@@ -29,7 +29,7 @@ forwarded_port        = [
   8025
 ]
 
-vbguest_auto_update   = true
+vbguest_auto_update   = false
 synced_folder_type    = 'virtualbox' # virtualbox|nfs|rsync|smb
 
 backup_database       = false

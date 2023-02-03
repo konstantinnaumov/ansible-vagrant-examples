@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     stages {
@@ -10,9 +11,9 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                sh 'echo DEPLOYING...'
-                sh 'cd /var/lib/jenkins/workspace/default_develop/VAW_Centos'
-                sh 'vagrant up --provision'
+                sh 'echo DEPLOYING...
+                sh 'vagrant up'
+                sh 'vagrant provision'
                 sh 'echo DEPLOY STAGE OK'
             }
         }

@@ -1,0 +1,34 @@
+---
+- name: check installed daemonize
+  command: type daemonize
+  register: daemonize_installed
+  failed_when: false
+  changed_when: false
+
+- name: daemonize installed
+  block:
+  - name: get daemonize archive
+    get_url:
+      url: https://github.com/bmc/daemonize/archive/release-1.7.8.zip
+      dest: /tmp/daemonize-1.7.8.zip
+
+  - name: mkdir /tmp/daemonize
+    file:
+      path: /tmp/daemonize
+      state: directory
+      mode: 0755
+
+  - name: unarchive daemonize
+    unarchive:
+      src: /tmp/daemonize-1.7.8.zip
+      dest: /tmp/daemonize
+
+  - name: build daemonize
+    command: "{{ item }}"
+    args:
+      chdir: /tmp/daemonize/daemonize-release-1.7.8
+    with_items:
+      - ./configure --prefix=/usr
+      - make
+      - make install
+  when: daemonize_installed.rc == 1

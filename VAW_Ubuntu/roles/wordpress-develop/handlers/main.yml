@@ -1,0 +1,10 @@
+---
+- name: daemon reload
+  service:
+    name: daemon-reload
+    state: restarted
+
+- name: mailhog started
+  service:
+    name: mailhog
+    state: started

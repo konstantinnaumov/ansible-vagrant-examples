@@ -1,0 +1,21 @@
+---
+- name: iptables stoped and disabled
+  service:
+    name: iptables
+    state: stopped
+    enabled: no
+
+- name: ntp installed
+  package:
+    name: ntp
+
+- name: ntp started and enabled
+  service:
+    name: ntpd
+    state: restarted
+    enabled: yes
+
+- name: IUS repository installed (CentOS/RHEL 6)
+  yum:
+    name: https://repo.ius.io/ius-release-el6.rpm
+    disable_gpg_check: yes

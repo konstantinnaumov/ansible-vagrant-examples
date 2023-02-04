@@ -1,0 +1,10 @@
+---
+- name: include task
+  include_tasks: '{{ ansible_os_family }}.yml'
+
+- include_tasks: peco.yml
+
+- name: zstd installed
+  package:
+    name: zstd
+    state: latest

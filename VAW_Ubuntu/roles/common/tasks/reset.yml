@@ -1,0 +1,89 @@
+---
+- name: apache stopped
+  service:
+    name: httpd
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  when: server != 'apache'
+
+- name: apache2 stopped
+  service:
+    name: apache2
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  changed_when: False
+  when: server != 'apache'
+
+- name: nginx stopped
+  service:
+    name: nginx
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  changed_when: False
+  when: server != 'nginx'
+
+- name: h2o stopped
+  service:
+    name: h2o
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  when: server != 'h2o'
+
+- name: php-fpm stopped
+  service:
+    name: php-fpm
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  when: fastcgi != 'php-fpm'
+
+- name: removed mysql
+  package:
+    name: mysql*
+    state: absent
+  ignore_errors: yes
+  when: database != 'mysql'
+
+- name: mariadb
+  block:
+  - name: removed MariaDB
+    package:
+      name: MariaDB*
+      state: absent
+    ignore_errors: yes
+
+  - name: removed mariadb
+    package:
+      name: mariadb*
+      state: absent
+    ignore_errors: yes
+
+  - name: delete symbolic links
+    file:
+      path: /etc/systemd/system/mysql.service
+      state: absent
+
+  - name: delete symbolic links
+    file:
+      path: /etc/systemd/system/mysqld.service
+      state: absent
+  when: database != 'mariadb'
+
+- name: mariadb
+  block:
+  - name: removed Percona
+    package:
+      name: Percona*
+      state: absent
+    ignore_errors: yes
+
+  - name: removed Percona
+    package:
+      name: percona*
+      state: absent
+    ignore_errors: yes
+  when: database != 'percona'
